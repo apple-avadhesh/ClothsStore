@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E707C52027FC045D00D0D1AD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707C51F27FC045D00D0D1AD /* APIClient.swift */; };
+		E707C52327FC151700D0D1AD /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707C52227FC151700D0D1AD /* CatalogueViewModel.swift */; };
+		E707C52627FC22A000D0D1AD /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707C52527FC229F00D0D1AD /* ProductModel.swift */; };
 		E73168C927FAA09B0040F41F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73168C827FAA09B0040F41F /* AppDelegate.swift */; };
 		E73168CB27FAA09B0040F41F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73168CA27FAA09B0040F41F /* SceneDelegate.swift */; };
 		E73168D027FAA09B0040F41F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73168CE27FAA09B0040F41F /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E707C51F27FC045D00D0D1AD /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		E707C52227FC151700D0D1AD /* CatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewModel.swift; sourceTree = "<group>"; };
+		E707C52527FC229F00D0D1AD /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		E73168C527FAA09B0040F41F /* ClothsStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothsStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73168C827FAA09B0040F41F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E73168CA27FAA09B0040F41F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E707C52127FC14FC00D0D1AD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E707C52227FC151700D0D1AD /* CatalogueViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E707C52427FC21EF00D0D1AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E707C52527FC229F00D0D1AD /* ProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E73168BC27FAA09B0040F41F = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +201,8 @@
 		E73168FB27FAA4110040F41F /* Catalogue */ = {
 			isa = PBXGroup;
 			children = (
+				E707C52427FC21EF00D0D1AD /* Model */,
+				E707C52127FC14FC00D0D1AD /* ViewModel */,
 				E731690727FAA67B0040F41F /* Controllers */,
 				E731690627FAA66A0040F41F /* Coordinator */,
 			);
@@ -254,6 +278,7 @@
 		E731691A27FAF6B30040F41F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E707C51F27FC045D00D0D1AD /* APIClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -393,11 +418,14 @@
 				E731691327FAB7410040F41F /* BasketVC.swift in Sources */,
 				E731691527FAB7870040F41F /* WishListCoordinator.swift in Sources */,
 				E731690127FAA51A0040F41F /* AppCoordinator.swift in Sources */,
+				E707C52627FC22A000D0D1AD /* ProductModel.swift in Sources */,
 				E731690B27FAAD7A0040F41F /* CatalogueVC.swift in Sources */,
 				E731691127FAB6E90040F41F /* WishListVC.swift in Sources */,
 				E731691927FAC3020040F41F /* ScreenFlow.swift in Sources */,
 				E73168C927FAA09B0040F41F /* AppDelegate.swift in Sources */,
 				E731690327FAA5350040F41F /* TabCoordinator.swift in Sources */,
+				E707C52027FC045D00D0D1AD /* APIClient.swift in Sources */,
+				E707C52327FC151700D0D1AD /* CatalogueViewModel.swift in Sources */,
 				E731691727FABA830040F41F /* BasketCoordinator.swift in Sources */,
 				E731690927FAA74F0040F41F /* CatalogueCoordinator.swift in Sources */,
 				E73168CB27FAA09B0040F41F /* SceneDelegate.swift in Sources */,
