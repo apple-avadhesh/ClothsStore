@@ -22,6 +22,8 @@ class CatalogueViewModel {
     
     // MARK: Methods
     
+    // Test: https://api.npoint.io/0f78766a6d68832d309d
+    
     func fetchData() {
         let reqModel = RequestModel.init(method: .GET, path: "0f78766a6d68832d309d")
         
