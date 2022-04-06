@@ -29,9 +29,10 @@ class CatalogueVC: UIViewController, CatalogueBase {
     // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.setUpBindingsAndAddView()
         self.setupUI()
-        super.viewDidLoad()
     }
     
     // MARK: - Methods
