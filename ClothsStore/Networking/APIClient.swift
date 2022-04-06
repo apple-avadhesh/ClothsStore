@@ -22,9 +22,7 @@ extension APIRequest {
         guard let components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: false) else {
             fatalError("Unable to create URL components")
         }
-//        components.queryItems = parameters.map {
-//            URLQueryItem(name: String($0), value: String($1))
-//        }
+        
         guard let url = components.url else {
             fatalError("Could not get url")
         }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		96063AD627FD34E000E04C69 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96063AD527FD34E000E04C69 /* Catalogue.storyboard */; };
-		96063AD927FD363B00E04C69 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96063AD827FD363B00E04C69 /* CatalogueView.swift */; };
 		96063ADC27FD36D800E04C69 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96063ADB27FD36D800E04C69 /* Storyboard+Extension.swift */; };
 		E707C52027FC045D00D0D1AD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707C51F27FC045D00D0D1AD /* APIClient.swift */; };
 		E707C52327FC151700D0D1AD /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707C52227FC151700D0D1AD /* CatalogueViewModel.swift */; };
@@ -31,6 +30,8 @@
 		E731691527FAB7870040F41F /* WishListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731691427FAB7870040F41F /* WishListCoordinator.swift */; };
 		E731691727FABA830040F41F /* BasketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731691627FABA830040F41F /* BasketCoordinator.swift */; };
 		E731691927FAC3020040F41F /* ScreenFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731691827FAC3020040F41F /* ScreenFlow.swift */; };
+		E7816FA227FD497900BA2B27 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7816FA127FD497900BA2B27 /* ProductCell.swift */; };
+		E7C0A6CE27FD51F2001F770A /* CatalogueGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C0A6CD27FD51F2001F770A /* CatalogueGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		96063AD527FD34E000E04C69 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
-		96063AD827FD363B00E04C69 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		96063ADB27FD36D800E04C69 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
 		E707C51F27FC045D00D0D1AD /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E707C52227FC151700D0D1AD /* CatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +79,8 @@
 		E731691427FAB7870040F41F /* WishListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCoordinator.swift; sourceTree = "<group>"; };
 		E731691627FABA830040F41F /* BasketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCoordinator.swift; sourceTree = "<group>"; };
 		E731691827FAC3020040F41F /* ScreenFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFlow.swift; sourceTree = "<group>"; };
+		E7816FA127FD497900BA2B27 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		E7C0A6CD27FD51F2001F770A /* CatalogueGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +119,8 @@
 		96063AD727FD362800E04C69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				96063AD827FD363B00E04C69 /* CatalogueView.swift */,
+				E7C0A6CD27FD51F2001F770A /* CatalogueGridView.swift */,
+				E7816FA127FD497900BA2B27 /* ProductCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -457,13 +460,14 @@
 				E731690B27FAAD7A0040F41F /* CatalogueVC.swift in Sources */,
 				E731691127FAB6E90040F41F /* WishListVC.swift in Sources */,
 				E731691927FAC3020040F41F /* ScreenFlow.swift in Sources */,
+				E7C0A6CE27FD51F2001F770A /* CatalogueGridView.swift in Sources */,
 				E73168C927FAA09B0040F41F /* AppDelegate.swift in Sources */,
 				E731690327FAA5350040F41F /* TabCoordinator.swift in Sources */,
 				E707C52027FC045D00D0D1AD /* APIClient.swift in Sources */,
 				E707C52327FC151700D0D1AD /* CatalogueViewModel.swift in Sources */,
 				E731691727FABA830040F41F /* BasketCoordinator.swift in Sources */,
 				E731690927FAA74F0040F41F /* CatalogueCoordinator.swift in Sources */,
-				96063AD927FD363B00E04C69 /* CatalogueView.swift in Sources */,
+				E7816FA227FD497900BA2B27 /* ProductCell.swift in Sources */,
 				E73168CB27FAA09B0040F41F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

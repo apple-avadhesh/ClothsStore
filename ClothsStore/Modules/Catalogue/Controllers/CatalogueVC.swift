@@ -31,11 +31,29 @@ class CatalogueVC: UIViewController, CatalogueBase {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchData()
     }
     
     // MARK: - Embed SwiftUI View
     
     @IBSegueAction func addCatalogueView(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: CatalogueView())
+        return UIHostingController(coder: coder, rootView: CatalogueGridView())
+    }
+    
+    func fetchData() {
+        let reqModel = RequestModel.init(method: .GET, path: "0f78766a6d68832d309d")
+        
+        APIClient().send(reqModel) { (result: Result<ProductModel, APIError>) -> Void in
+            
+            switch result {
+            case .success(let dataModel):
+                if let products = dataModel.products {
+                    //self.products = products
+                }
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
 }
