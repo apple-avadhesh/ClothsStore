@@ -7,17 +7,13 @@
 
 import Foundation
 
-class CatalogueViewModel {
+class CatalogueViewModel: ObservableObject {
     
     //MARK: Properties
     
     var reloadTableCompletion: () -> () = {  }
     
-    private var products: [Product] = [Product]() {
-        didSet {
-            self.reloadTableCompletion()
-        }
-    }
+    @Published var products = [Product]()
     
     
     // MARK: Methods
@@ -32,7 +28,9 @@ class CatalogueViewModel {
             switch result {
             case .success(let dataModel):
                 if let products = dataModel.products {
-                    self.products = products
+                    DispatchQueue.main.async {
+                        self.products = products
+                    }
                 }
             case .failure(let failure):
                 print(failure)

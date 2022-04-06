@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CatalogueGridView: View {
     
+    @ObservedObject var viewModel: CatalogueViewModel
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false, content: {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())],spacing: 20) {
-                ForEach(0..<25) { product in
+                ForEach(viewModel.products, id: \.self) { product in
                     ProductCell(product: product)
                 }
             }.padding(15)

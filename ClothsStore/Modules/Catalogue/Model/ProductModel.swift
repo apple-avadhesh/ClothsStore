@@ -13,7 +13,7 @@ struct ProductModel: Codable {
 }
 
 // MARK: - Product
-struct Product: Codable {
+struct Product: Codable, Hashable {
     let name: String?
     let image: String?
     let price: Double?

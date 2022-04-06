@@ -10,12 +10,12 @@ import UIKit
 import SwiftUI
 
 class CatalogueVC: UIViewController, CatalogueBase {
-   
-    // MARK: Outlets
     
     // MARK: - Variables
     var coordinator: CatalogueBaseCoordinator?
-    
+    var viewModel: CatalogueViewModel?
+    private var products = [Product]()
+
     // MARK: - Initializers
     init(coordinator: CatalogueBaseCoordinator) {
         super.init(nibName: nil, bundle: nil)
@@ -24,36 +24,37 @@ class CatalogueVC: UIViewController, CatalogueBase {
     }
     
     required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
+        super.init(coder: aDecoder)
     }
     
     // MARK: - View Controller Life Cycle
-   
+    
     override func viewDidLoad() {
+        self.setUpBindingsAndAddView()
+        //self.addSwiftUIView()
         super.viewDidLoad()
-        
-        fetchData()
     }
     
-    // MARK: - Embed SwiftUI View
+    // MARK: - Methods
     
-    @IBSegueAction func addCatalogueView(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: CatalogueGridView())
-    }
-    
-    func fetchData() {
-        let reqModel = RequestModel.init(method: .GET, path: "0f78766a6d68832d309d")
+    private func setUpBindingsAndAddView() {
+        guard let viewModel = viewModel else { return }
         
-        APIClient().send(reqModel) { (result: Result<ProductModel, APIError>) -> Void in
-            
-            switch result {
-            case .success(let dataModel):
-                if let products = dataModel.products {
-                    //self.products = products
-                }
-            case .failure(let failure):
-                print(failure)
-            }
-        }
+        viewModel.fetchData()
+        
+        let catalogueView = CatalogueGridView(viewModel: viewModel)
+
+        let controller = UIHostingController(rootView: catalogueView)
+        addChild(controller)
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
+        controller.didMove(toParent: self)
+
+        NSLayoutConstraint.activate([
+            controller.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            controller.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }

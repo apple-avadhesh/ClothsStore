@@ -23,9 +23,11 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
     
     func start() -> UIViewController {
         
-        // Initial Controller
+        // Coordinator initializes and injects viewModel
         if let catalogueVC = Storyboards.catalogue.instantiateVC(CatalogueVC.self) {
             catalogueVC.coordinator = self
+            let viewModel = CatalogueViewModel()
+            catalogueVC.viewModel = viewModel
             rootViewController = UINavigationController(rootViewController: catalogueVC)
             return rootViewController
         }
