@@ -29,6 +29,7 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
             let viewModel = CatalogueViewModel()
             catalogueVC.viewModel = viewModel
             rootViewController = UINavigationController(rootViewController: catalogueVC)
+            (rootViewController as? UINavigationController)?.navigationBar.prefersLargeTitles = true
             return rootViewController
         }
         return UIViewController()

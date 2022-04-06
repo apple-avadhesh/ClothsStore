@@ -20,7 +20,6 @@ class CatalogueVC: UIViewController, CatalogueBase {
     init(coordinator: CatalogueBaseCoordinator) {
         super.init(nibName: nil, bundle: nil)
         self.coordinator = coordinator
-        title = "Catalogue"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,11 +30,15 @@ class CatalogueVC: UIViewController, CatalogueBase {
     
     override func viewDidLoad() {
         self.setUpBindingsAndAddView()
-        //self.addSwiftUIView()
+        self.setupUI()
         super.viewDidLoad()
     }
     
     // MARK: - Methods
+    
+    private func setupUI() {
+        title = "Catalogue"
+    }
     
     private func setUpBindingsAndAddView() {
         guard let viewModel = viewModel else { return }
