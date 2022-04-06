@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class CatalogueVC: UIViewController, CatalogueBase {
    
@@ -22,13 +23,19 @@ class CatalogueVC: UIViewController, CatalogueBase {
         title = "Catalogue"
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
     }
     
     // MARK: - View Controller Life Cycle
    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Embed SwiftUI View
+    
+    @IBSegueAction func addCatalogueView(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder, rootView: CatalogueView())
     }
 }

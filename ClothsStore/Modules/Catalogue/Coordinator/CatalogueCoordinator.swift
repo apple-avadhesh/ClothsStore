@@ -22,8 +22,14 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
     lazy var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: CatalogueVC(coordinator: self))
-        return rootViewController
+        
+        // Initial Controller
+        if let catalogueVC = Storyboards.catalogue.instantiateVC(CatalogueVC.self) {
+            catalogueVC.coordinator = self
+            rootViewController = UINavigationController(rootViewController: catalogueVC)
+            return rootViewController
+        }
+        return UIViewController()
     }
     
     func moveTo(flow: ScreenFlow, userData: [String : Any]? = nil) {
