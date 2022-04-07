@@ -42,6 +42,10 @@
 		E787DA7E27FD8DFF00C052C5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E787DA7D27FD8DFF00C052C5 /* CoreDataStack.swift */; };
 		E787DA8127FD908800C052C5 /* Cart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E787DA7F27FD908800C052C5 /* Cart.xcdatamodeld */; };
 		E7C0A6CE27FD51F2001F770A /* CatalogueGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C0A6CD27FD51F2001F770A /* CatalogueGridView.swift */; };
+		E7D3F15E27FE80D40038CF1B /* ProductDetailContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D3F15D27FE80D40038CF1B /* ProductDetailContainerVC.swift */; };
+		E7D3F16027FE81D60038CF1B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D3F15F27FE81D60038CF1B /* UIView+Extension.swift */; };
+		E7D3F16227FE823C0038CF1B /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D3F16127FE823C0038CF1B /* HapticFeedback.swift */; };
+		E7D3F16427FE83F40038CF1B /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D3F16327FE83F40038CF1B /* ProductDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +105,10 @@
 		E787DA7D27FD8DFF00C052C5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E787DA8027FD908800C052C5 /* Cart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cart.xcdatamodel; sourceTree = "<group>"; };
 		E7C0A6CD27FD51F2001F770A /* CatalogueGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueGridView.swift; sourceTree = "<group>"; };
+		E7D3F15D27FE80D40038CF1B /* ProductDetailContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailContainerVC.swift; sourceTree = "<group>"; };
+		E7D3F15F27FE81D60038CF1B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E7D3F16127FE823C0038CF1B /* HapticFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		E7D3F16327FE83F40038CF1B /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				E721352327FDDB8800837EAB /* UITableView+Extension.swift */,
+				E7D3F15F27FE81D60038CF1B /* UIView+Extension.swift */,
+				E7D3F16127FE823C0038CF1B /* HapticFeedback.swift */,
 				E721352927FE093300837EAB /* AsyncImage.swift */,
 				96EE005127FE201000CF9497 /* UIColor+Extension.swift */,
 				E721352727FE068B00837EAB /* Double+Extension.swift */,
@@ -312,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				E731690A27FAAD7A0040F41F /* CatalogueVC.swift */,
+				E7D3F16327FE83F40038CF1B /* ProductDetailVC.swift */,
+				E7D3F15D27FE80D40038CF1B /* ProductDetailContainerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -517,13 +529,17 @@
 				E787DA8127FD908800C052C5 /* Cart.xcdatamodeld in Sources */,
 				E73168C927FAA09B0040F41F /* AppDelegate.swift in Sources */,
 				E731690327FAA5350040F41F /* TabCoordinator.swift in Sources */,
+				E7D3F16227FE823C0038CF1B /* HapticFeedback.swift in Sources */,
 				E721352A27FE093300837EAB /* AsyncImage.swift in Sources */,
 				96EE005227FE201000CF9497 /* UIColor+Extension.swift in Sources */,
 				E707C52027FC045D00D0D1AD /* APIClient.swift in Sources */,
 				E707C52327FC151700D0D1AD /* CatalogueViewModel.swift in Sources */,
+				E7D3F16027FE81D60038CF1B /* UIView+Extension.swift in Sources */,
 				E731691727FABA830040F41F /* BasketCoordinator.swift in Sources */,
 				E731690927FAA74F0040F41F /* CatalogueCoordinator.swift in Sources */,
 				E7816FA227FD497900BA2B27 /* ProductCell.swift in Sources */,
+				E7D3F15E27FE80D40038CF1B /* ProductDetailContainerVC.swift in Sources */,
+				E7D3F16427FE83F40038CF1B /* ProductDetailVC.swift in Sources */,
 				E73168CB27FAA09B0040F41F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

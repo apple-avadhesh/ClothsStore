@@ -49,7 +49,16 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
         case .landingPage:
             navigationRootViewController?.popToRootViewController(animated: true)
         case .productDetail:
-            break
+            guard let product = userData?["product"] as? Product else { return }
+            goToProductDetail(product: product)
+        }
+    }
+    
+    func goToProductDetail(product: Product) {
+        if let productDetailVC = Storyboards.productDetail.instantiateVC(ProductDetailContainerVC.self) {
+            productDetailVC.coordinator = self
+            productDetailVC.product = product
+            navigationRootViewController?.present(UINavigationController(rootViewController: productDetailVC), animated: true)
         }
     }
 }

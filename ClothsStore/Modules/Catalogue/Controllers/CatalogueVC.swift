@@ -46,7 +46,11 @@ class CatalogueVC: UIViewController, CatalogueBase {
         
         viewModel.fetchData()
         
-        let catalogueView = CatalogueGridView(viewModel: viewModel)
+        var catalogueView = CatalogueGridView(viewModel: viewModel)
+        catalogueView.selectedProduct = { [self] product in
+            print(product)
+            coordinator?.moveTo(flow: .catalogue(.productDetail), userData: ["product": product])
+        }
 
         let controller = UIHostingController(rootView: catalogueView)
         addChild(controller)
