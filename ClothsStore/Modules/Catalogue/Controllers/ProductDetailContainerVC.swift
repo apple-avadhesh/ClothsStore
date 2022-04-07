@@ -19,7 +19,7 @@ class ProductDetailContainerVC: UIViewController{
     @IBOutlet var addedToBasketLabel: UILabel!
 
     //Variables
-    var product : Product!
+    var item : Item!
     var coordinator: CatalogueBaseCoordinator?
 
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class ProductDetailContainerVC: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailContainer"{
             let dest = segue.destination as! ProductDetailVC
-            dest.product = product
+            dest.item = item
         }
     }
 

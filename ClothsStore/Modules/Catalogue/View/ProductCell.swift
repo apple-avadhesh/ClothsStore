@@ -11,7 +11,7 @@ struct ProductCell: View {
     
     //MARK: Properties
     
-    let product: Product
+    var item: Item
     
     //MARK: Body
     
@@ -21,7 +21,7 @@ struct ProductCell: View {
             //Note: Apple's AsyncImage Not stable and flickers when scrolling
             
             AsyncImage(
-                url: URL(string: product.image!)!,
+                url: URL(string: item.image!)!,
                 placeholder: { Text("Loading ...") },
                 image: { Image(uiImage: $0).resizable() }
             )
@@ -33,13 +33,13 @@ struct ProductCell: View {
             Spacer()
             
             // Product Name
-            Text(product.name ?? "")
+            Text(item.name ?? "")
                 .font(.body)
                 .foregroundColor(.gray)
                 .padding(8)
             
             // Product Price
-            Text(product.price?.currencyString() ?? "$ 0")
+            Text(item.price.currencyString())
                 .font(.title2)
                 .fontWeight(.black)
                 .padding(8)

@@ -1,8 +1,8 @@
 //
-//  WishListController.swift
+//  WishListVC.swift
 //  ClothsStore
 //
-//  Created by Avadhesh on 04/04/22.
+//  Created by Avadhesh on 07/04/22.
 //
 
 import Foundation
@@ -19,7 +19,6 @@ class WishListVC: UIViewController, WishListBase {
     init(coordinator: WishListBaseCoordinator) {
         super.init(nibName: nil, bundle: nil)
         self.coordinator = coordinator
-        title = "Catalogue"
     }
     
     required init?(coder: NSCoder) {
@@ -30,5 +29,11 @@ class WishListVC: UIViewController, WishListBase {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // MARK: - Methods
+    
+    private func setupUI() {
+        title = "Wishlist"
     }
 }

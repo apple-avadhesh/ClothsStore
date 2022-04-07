@@ -49,15 +49,15 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
         case .landingPage:
             navigationRootViewController?.popToRootViewController(animated: true)
         case .productDetail:
-            guard let product = userData?["product"] as? Product else { return }
-            goToProductDetail(product: product)
+            guard let item = userData?["product"] as? Item else { return }
+            goToProductDetail(item: item)
         }
     }
     
-    func goToProductDetail(product: Product) {
+    func goToProductDetail(item: Item) {
         if let productDetailVC = Storyboards.productDetail.instantiateVC(ProductDetailContainerVC.self) {
             productDetailVC.coordinator = self
-            productDetailVC.product = product
+            productDetailVC.item = item
             navigationRootViewController?.present(UINavigationController(rootViewController: productDetailVC), animated: true)
         }
     }
