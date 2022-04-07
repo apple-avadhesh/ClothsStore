@@ -15,6 +15,7 @@ class WishListVC: UIViewController, WishListBase {
     // MARK: - Variables
     var coordinator: WishListBaseCoordinator?
     var cdHelper = CoreDataHelper()
+    var viewModel: WishListViewModel?
 
     // MARK: - Initializers
     init(coordinator: WishListBaseCoordinator) {
@@ -22,8 +23,8 @@ class WishListVC: UIViewController, WishListBase {
         self.coordinator = coordinator
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     // MARK: - View Controller Life Cycle
@@ -31,6 +32,7 @@ class WishListVC: UIViewController, WishListBase {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setUpBindings()
     }
     
     // MARK: - Methods
@@ -40,16 +42,20 @@ class WishListVC: UIViewController, WishListBase {
         
         cdHelper.type = .wishlist
     }
+
+    private func setUpBindings() {
+        viewModel?.fetchData()
+    }
 }
 
 extension WishListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cdHelper.fetchedResultsController.fetchedObjects!.count
+        return viewModel!.items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(with: WishListCell.self, for: indexPath)
-        cell.configure(with: cdHelper.fetchedResultsController.fetchedObjects![indexPath.row])
+        cell.configure(with: viewModel!.items[indexPath.row])
         return cell
     }
 }

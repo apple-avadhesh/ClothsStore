@@ -13,6 +13,7 @@ enum Storyboards: String {
     case catalogue = "Catalogue"
     case productDetail = "ProductDetail"
     case basket = "Basket"
+    case wishList = "WishList"
 
     func instantiateVC<T>(_ identifier: T.Type) -> T?  {
         let storyboard = UIStoryboard(name: rawValue, bundle: nil)

@@ -22,8 +22,16 @@ class WishListCoordinator: WishListBaseCoordinator {
     lazy var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: WishListVC(coordinator: self))
-        return rootViewController
+        // Coordinator initializes and injects viewModel
+        if let wishlistVC = Storyboards.wishList.instantiateVC(WishListVC.self) {
+            wishlistVC.coordinator = self
+            let viewModel = WishListViewModel()
+            wishlistVC.viewModel = viewModel
+            rootViewController = UINavigationController(rootViewController: wishlistVC)
+            (rootViewController as? UINavigationController)?.navigationBar.prefersLargeTitles = true
+            return rootViewController
+        }
+        return UIViewController()
     }
     
     func moveTo(flow: ScreenFlow, userData: [String : Any]? = nil) {
