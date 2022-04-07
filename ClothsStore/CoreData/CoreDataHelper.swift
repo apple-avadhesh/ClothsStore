@@ -23,11 +23,7 @@ class CoreDataHelper: NSObject {
     var type = ItemTypes.all
 
     var fetchedResultsController: NSFetchedResultsController<Item> {
-        
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
-        }
-        
+
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)

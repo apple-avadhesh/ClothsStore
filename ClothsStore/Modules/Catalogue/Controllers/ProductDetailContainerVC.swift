@@ -58,6 +58,6 @@ class ProductDetailContainerVC: UIViewController{
 
     @IBAction func addToWishListAction(_ sender: Any) {
         Haptic.feedBack()
-
+        item.updateWishlist()
     }
 }

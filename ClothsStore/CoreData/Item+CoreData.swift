@@ -68,10 +68,10 @@ extension Item {
         return 0
     }
     
-    func updateWishlist(){
+    func updateWishlist() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == \(self.id)")
+        fetchRequest.predicate = NSPredicate(format: "productID == \(self.productID)")
         do {
             let result = try context.fetch(fetchRequest)
             if let product = result.first{

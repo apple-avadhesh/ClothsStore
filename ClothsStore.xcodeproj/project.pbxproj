@@ -188,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				E707C52527FC229F00D0D1AD /* ProductModel.swift */,
-				E7D3F17227FEC9A20038CF1B /* Item+CoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +388,7 @@
 			children = (
 				E787DA7D27FD8DFF00C052C5 /* CoreDataManager.swift */,
 				E7D3F16E27FEA4560038CF1B /* BasketManager.swift */,
+				E7D3F17227FEC9A20038CF1B /* Item+CoreData.swift */,
 				E7E494E327FF102500944DA8 /* CoreDataHelper.swift */,
 				E787DA7F27FD908800C052C5 /* Cart.xcdatamodeld */,
 			);

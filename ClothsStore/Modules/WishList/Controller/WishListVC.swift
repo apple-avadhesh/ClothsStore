@@ -11,6 +11,11 @@ import UIKit
 class WishListVC: UIViewController, WishListBase {
    
     // MARK: Outlets
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.rowHeight = UITableView.automaticDimension
+        }
+    }
     
     // MARK: - Variables
     var coordinator: WishListBaseCoordinator?
@@ -32,6 +37,10 @@ class WishListVC: UIViewController, WishListBase {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpBindings()
     }
     
@@ -45,6 +54,10 @@ class WishListVC: UIViewController, WishListBase {
 
     private func setUpBindings() {
         viewModel?.fetchData()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
