@@ -13,9 +13,7 @@ class CatalogueViewModel: ObservableObject {
     //MARK: Properties
     
     @Published var items = [Item]()
-    
-    var _fetchedResultsController: NSFetchedResultsController<Item>? = nil
-    var managedObjectContext :NSManagedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
+    var cdHelper = CoreDataHelper()
 
     // MARK: Methods
         
@@ -34,41 +32,13 @@ class CatalogueViewModel: ObservableObject {
                             UserDefaults.standard.setFirsLoad()
                         }
                         
-                        self.items = self.fetchedResultsController.fetchedObjects!
+                        self.cdHelper.type = .all
+                        self.items = self.cdHelper.fetchedResultsController.fetchedObjects!
                     }
                 }
             case .failure(let failure):
                 print(failure)
             }
         }
-    }
-}
-
-//MARK: Manage Datasource
-
-extension CatalogueViewModel {
-    
-    var fetchedResultsController: NSFetchedResultsController<Item> {
-        
-        if _fetchedResultsController != nil {
-            return _fetchedResultsController!
-        }
-        
-        let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
-        
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        _fetchedResultsController = aFetchedResultsController
-        
-        do {
-            try _fetchedResultsController!.performFetch()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-        return _fetchedResultsController!
     }
 }

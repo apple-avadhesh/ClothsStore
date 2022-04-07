@@ -42,6 +42,11 @@ extension Item {
             item.oldPrice = 0.0
         }
         
+        if let pr = jsonObject.price {
+            item.price = pr
+        } else {
+            item.price = 0.0
+        }
         
         if let stck = jsonObject.stock {
             item.stock = Int16(exactly: stck)!

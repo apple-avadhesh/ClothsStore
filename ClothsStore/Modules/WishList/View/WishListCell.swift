@@ -15,10 +15,10 @@ class WishListCell: UITableViewCell, CellReusable {
     @IBOutlet private weak var stockLabel: UILabel!
     @IBOutlet private weak var productImageView: UIImageView!
 
-    func configure(with product: Product) {
+    func configure(with product: Item) {
         nameLabel.text = product.name
 //        priceLabel.text = product.price.toPriceString()
 //        stockLabel.text = "\(product.stock)"
-//        productImageView.kf.setImage(with: product.imageURL.asURL())
+        
     }
 }
