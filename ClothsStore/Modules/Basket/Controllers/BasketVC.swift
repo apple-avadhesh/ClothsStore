@@ -39,8 +39,6 @@ class BasketVC: UIViewController, BasketBase {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.viewModel?.cdHelper.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +47,17 @@ class BasketVC: UIViewController, BasketBase {
         updateUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.viewModel?.cdHelper.delegate = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.viewModel?.cdHelper.delegate = nil
+    }
+    
+    //MARK: Methods
     private func setUpBindings() {
         viewModel?.fetchData()
         
@@ -66,6 +75,8 @@ class BasketVC: UIViewController, BasketBase {
         }
     }
 }
+
+//MARK: UITableViewDataSource
 
 extension BasketVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

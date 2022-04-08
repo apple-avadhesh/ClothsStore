@@ -54,7 +54,7 @@ class ProductDetailContainerVC: UIViewController {
 
     @IBAction func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
-
+        Cart.updateCart(withItem: item)
     }
 
     @IBAction func addToWishListAction(_ sender: Any) {
