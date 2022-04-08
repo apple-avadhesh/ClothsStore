@@ -2,7 +2,7 @@
 //  CatalogueGridView.swift
 //  ClothsStore
 //
-//  Created by Avadhesh on 06/04/22.
+//  Created by Zoombie on 06/04/22.
 //
 
 import SwiftUI
