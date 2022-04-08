@@ -17,9 +17,11 @@ class WishListVC: UIViewController, WishListBase {
         }
     }
     
+    @IBOutlet var noWishListLabel: UILabel!
+
     // MARK: - Variables
     var coordinator: WishListBaseCoordinator?
-    var cdHelper = CoreDataHelper()
+    var cdHelper = CoreDataItemHelper()
     var viewModel: WishListViewModel?
 
     // MARK: - Initializers
@@ -54,9 +56,17 @@ class WishListVC: UIViewController, WishListBase {
 
     private func setUpBindings() {
         viewModel?.fetchData()
-        
+        displayPlaceHolderText()
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    private func displayPlaceHolderText() {
+        DispatchQueue.main.async {
+            if let isEmpty = self.viewModel?.items.isEmpty {
+                self.noWishListLabel.isHidden = !isEmpty
+            }
         }
     }
 }
@@ -68,7 +78,24 @@ extension WishListVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(with: WishListCell.self, for: indexPath)
-        cell.configure(with: viewModel!.items[indexPath.row])
+        cell.item = viewModel!.items[indexPath.row]
+        cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension WishListVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = UIContextualAction(style: .destructive, title: "Remove") {  (contextualAction, view, boolValue) in
+            self.viewModel!.items[indexPath.row].updateWishlist()
+            self.viewModel!.fetchData()
+            self.displayPlaceHolderText()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [item])
+        return swipeActions
     }
 }

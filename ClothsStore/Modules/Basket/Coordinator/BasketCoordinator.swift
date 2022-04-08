@@ -22,8 +22,17 @@ class BasketCoordinator: BasketBaseCoordinator {
     lazy var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: BasketVC(coordinator: self))
-        return rootViewController
+        
+        // Coordinator initializes and injects viewModel
+        if let basketVC = Storyboards.basket.instantiateVC(BasketVC.self) {
+            basketVC.coordinator = self
+            let viewModel = BasketViewModel()
+            basketVC.viewModel = viewModel
+            rootViewController = UINavigationController(rootViewController: basketVC)
+            (rootViewController as? UINavigationController)?.navigationBar.prefersLargeTitles = true
+            return rootViewController
+        }
+        return UIViewController()
     }
     
     func moveTo(flow: ScreenFlow, userData: [String : Any]? = nil) {

@@ -12,7 +12,7 @@ class WishListViewModel: ObservableObject {
     //MARK: Properties
     
     @Published var items = [Item]()
-    var cdHelper = CoreDataHelper()
+    var cdHelper = CoreDataItemHelper()
 
     // MARK: Methods
         

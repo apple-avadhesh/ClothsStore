@@ -15,10 +15,18 @@ class WishListCell: UITableViewCell, CellReusable {
     @IBOutlet private weak var stockLabel: UILabel!
     @IBOutlet private weak var productImageView: UIImageView!
 
-    func configure(with item: Item) {
-        nameLabel.text = item.name
-        priceLabel.text = item.price.currencyString()
-        stockLabel.text = "\(item.stock)"
-        productImageView.setImageWithURLString(urlString: item.image ?? "", placeholderImageFileName: "placeholderImage")
+    var item: Item? {
+        didSet{
+            guard let item = item else {return}
+            nameLabel.text = item.name
+            priceLabel.text = item.price.currencyString()
+            stockLabel.text = "\(item.stock)"
+            productImageView.setImageWithURLString(urlString: item.image ?? "", placeholderImageFileName: "placeholderImage")
+        }
+    }
+    
+    @IBAction func addToCart(_ sender: Any) {
+        guard let item = item else {return}
+        Cart.updateCart(withItem: item)
     }
 }
