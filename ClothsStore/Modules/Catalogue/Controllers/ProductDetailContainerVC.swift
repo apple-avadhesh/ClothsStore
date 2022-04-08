@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-class ProductDetailContainerVC: UIViewController{
-
+class ProductDetailContainerVC: UIViewController {
 
     //Views
     var backButton : UIBarButtonItem!
@@ -34,6 +33,8 @@ class ProductDetailContainerVC: UIViewController{
 
         wishListButton.dropShadow(radius: 8, opacity: 0.2, color: .black)
         addToCartButton.dropShadow(radius: 8, opacity: 0.4, color: UIColor.primaryColour)
+        
+        updateWishListButtonText()
     }
 
     // MARK: - Navigation
@@ -59,5 +60,15 @@ class ProductDetailContainerVC: UIViewController{
     @IBAction func addToWishListAction(_ sender: Any) {
         Haptic.feedBack()
         item.updateWishlist()
+        updateWishListButtonText()
+    }
+    
+    //MARK: Methods
+    func updateWishListButtonText() {
+        if !item.isFavourite {
+            wishListButton?.setTitle("Add to wishlist".uppercased(), for: .normal)
+        } else {
+            wishListButton?.setTitle("remove from wishlist".uppercased(), for: .normal)
+        }
     }
 }
