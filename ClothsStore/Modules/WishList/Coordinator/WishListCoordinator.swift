@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 //MARK: Marker Protocol
 protocol WishListBaseCoordinator: AppCoordinator {}
@@ -21,17 +22,32 @@ class WishListCoordinator: WishListBaseCoordinator {
     
     lazy var rootViewController: UIViewController = UIViewController()
     
+    private var bindings = Set<AnyCancellable>()
+    
     func start() -> UIViewController {
         // Coordinator initializes and injects viewModel
         if let wishlistVC = Storyboards.wishList.instantiateVC(WishListVC.self) {
             wishlistVC.coordinator = self
             let viewModel = WishListViewModel()
             wishlistVC.viewModel = viewModel
+            
+            //MARK: Badge Update
+            viewModel.$items
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.badgeUpdate()
+                })
+                .store(in: &bindings)
+            
             rootViewController = UINavigationController(rootViewController: wishlistVC)
             (rootViewController as? UINavigationController)?.navigationBar.prefersLargeTitles = true
             return rootViewController
         }
         return UIViewController()
+    }
+    
+    func badgeUpdate() {
+        
     }
     
     func moveTo(flow: ScreenFlow, userData: [String : Any]? = nil) {

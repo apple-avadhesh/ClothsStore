@@ -7,11 +7,12 @@
 
 import CoreData
 
-class WishListViewModel: ObservableObject {
+class WishListViewModel {
     
     //MARK: Properties
     
     @Published var items = [Item]()
+
     var cdHelper = CoreDataItemHelper()
 
     // MARK: Methods
