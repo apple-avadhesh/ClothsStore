@@ -27,21 +27,21 @@ class ProductDetailVC: UITableViewController {
         super.viewDidLoad()
         
         productName.text = item?.name
-        //  productPrice.text = CurrencyHelper.getMoneyString(product?.price ?? 0)
+        productPrice.text = CurrencyHelper.getMoneyString(Float(item?.price ?? 0))
         
-        //  let attributedString = NSMutableAttributedString(string: CurrencyHelper.getMoneyString(product?.oldPrice ?? 0))
-        // attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSNumber(value: NSUnderlineStyle.single.rawValue), range: NSMakeRange(0, attributedString.length))
-        // attributedString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.primaryColour, range: NSMakeRange(0, attributedString.length))
+        let attributedString = NSMutableAttributedString(string: CurrencyHelper.getMoneyString(Float(item?.oldPrice ?? 0)))
+         attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSNumber(value: NSUnderlineStyle.single.rawValue), range: NSMakeRange(0, attributedString.length))
+         attributedString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.primaryColour, range: NSMakeRange(0, attributedString.length))
         
         if item?.oldPrice != nil{
-            // productOldPrice.attributedText = attributedString
+             productOldPrice.attributedText = attributedString
         }
         
         productCategory.text = item?.category
         productStockCount.text = "\(item?.stock ?? 0)"
         if (item?.stock ?? 0) > 0 {
             productInStock.text = "In Stock"
-        }else{
+        } else {
             productInStock.text = "Out of Stock"
         }
         

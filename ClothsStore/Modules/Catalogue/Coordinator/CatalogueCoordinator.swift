@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 //MARK: Marker Protocol
 protocol CatalogueBaseCoordinator: AppCoordinator {}
@@ -21,6 +22,8 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
     
     lazy var rootViewController: UIViewController = UIViewController()
     
+    private var bindings = Set<AnyCancellable>()
+
     func start() -> UIViewController {
         
         // Coordinator initializes and injects viewModel
@@ -58,7 +61,32 @@ class CatalogueCoordinator: CatalogueBaseCoordinator {
         if let productDetailVC = Storyboards.productDetail.instantiateVC(ProductDetailContainerVC.self) {
             productDetailVC.coordinator = self
             productDetailVC.item = item
+            
+            //MARK: Badge Update
+            productDetailVC.item.publisher(for: \.isFavourite,
+                                           options: [.new])
+            .sink { _ in
+                self.badgeUpdate()
+            }
+            .store(in: &bindings)
+            
+            productDetailVC.$shouldRefreshCartBadge
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.badgeUpdate()
+                })
+                .store(in: &bindings)
+            
             navigationRootViewController?.present(UINavigationController(rootViewController: productDetailVC), animated: true)
+        }
+    }
+    
+    func badgeUpdate() {
+        if let tabItems = (rootViewController as? UINavigationController)?.tabBarController?.tabBar.items,
+           let wishListTabItem = tabItems[safe: 1],
+           let basketTabItem = tabItems[safe: 2]{
+            wishListTabItem.badgeValue = "\(Item.getAllWishListItems())"
+            basketTabItem.badgeValue = "\(Cart.getAllCartItems())"
         }
     }
 }

@@ -59,8 +59,8 @@ extension Item {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         do {
-            let result = try context.fetch(fetchRequest)
             fetchRequest.predicate = NSPredicate(format: "isFavourite == 1")
+            let result = try context.fetch(fetchRequest)
             return result.count
         } catch {
             print("Could not fetch wishlist")

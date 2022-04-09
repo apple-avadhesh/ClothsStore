@@ -18,7 +18,9 @@ class ProductDetailContainerVC: UIViewController {
     @IBOutlet var addedToBasketLabel: UILabel!
 
     //Variables
-    var item : Item!
+    @Published var item : Item!
+    @Published var shouldRefreshCartBadge : Bool = false
+
     var coordinator: CatalogueBaseCoordinator?
 
     override func viewDidLoad() {
@@ -38,14 +40,12 @@ class ProductDetailContainerVC: UIViewController {
     }
 
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailContainer"{
             let dest = segue.destination as! ProductDetailVC
             dest.item = item
         }
     }
-
 
     // MARK: - Actions
     @IBAction func close(_ sender: Any) {
@@ -54,6 +54,7 @@ class ProductDetailContainerVC: UIViewController {
 
     @IBAction func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
+        shouldRefreshCartBadge = true
         Cart.updateCart(withItem: item)
     }
 

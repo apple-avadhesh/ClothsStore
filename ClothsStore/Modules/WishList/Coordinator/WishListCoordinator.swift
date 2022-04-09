@@ -31,7 +31,7 @@ class WishListCoordinator: WishListBaseCoordinator {
             let viewModel = WishListViewModel()
             wishlistVC.viewModel = viewModel
             
-            //MARK: Badge Update
+            //MARK: Badge Update WishList
             viewModel.$items
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { [weak self] _ in
@@ -47,7 +47,9 @@ class WishListCoordinator: WishListBaseCoordinator {
     }
     
     func badgeUpdate() {
-        
+        if let tabItems = (rootViewController as? UINavigationController)?.tabBarController?.tabBar.items, let tabItem = tabItems[safe: 1]  {
+            tabItem.badgeValue = "\(Item.getAllWishListItems())"
+        }
     }
     
     func moveTo(flow: ScreenFlow, userData: [String : Any]? = nil) {

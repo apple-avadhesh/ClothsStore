@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 //MARK: Marker Protocol
 protocol BasketBaseCoordinator: AppCoordinator {}
@@ -21,6 +22,8 @@ class BasketCoordinator: BasketBaseCoordinator {
     
     lazy var rootViewController: UIViewController = UIViewController()
     
+    private var bindings = Set<AnyCancellable>()
+    
     func start() -> UIViewController {
         
         // Coordinator initializes and injects viewModel
@@ -28,6 +31,15 @@ class BasketCoordinator: BasketBaseCoordinator {
             basketVC.coordinator = self
             let viewModel = BasketViewModel()
             basketVC.viewModel = viewModel
+            
+            //MARK: Badge Update Cart
+            viewModel.$cart
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.badgeUpdate()
+                })
+                .store(in: &bindings)
+            
             rootViewController = UINavigationController(rootViewController: basketVC)
             (rootViewController as? UINavigationController)?.navigationBar.prefersLargeTitles = true
             return rootViewController
@@ -48,6 +60,13 @@ class BasketCoordinator: BasketBaseCoordinator {
         switch screen {
         case .landingPage:
             navigationRootViewController?.popToRootViewController(animated: true)
+        }
+    }
+    
+    func badgeUpdate() {
+        if let tabItems = (rootViewController as? UINavigationController)?.tabBarController?.tabBar.items,
+           let basketTabItem = tabItems[safe: 2]{
+            basketTabItem.badgeValue = "\(Cart.getAllCartItems())"
         }
     }
 }
