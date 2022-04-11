@@ -2,7 +2,7 @@
 //  TestHelper.swift
 //  ClothsStoreTests
 //
-//  Created by PC Gamer on 11/04/22.
+//  Created by Zoombie on 11/04/22.
 //
 
 import Foundation
