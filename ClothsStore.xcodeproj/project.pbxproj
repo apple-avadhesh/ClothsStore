@@ -38,6 +38,7 @@
 		E731691727FABA830040F41F /* BasketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731691627FABA830040F41F /* BasketCoordinator.swift */; };
 		E731691927FAC3020040F41F /* ScreenFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731691827FAC3020040F41F /* ScreenFlow.swift */; };
 		E73404BA27FDA5A9007A3AC2 /* Basket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73404B927FDA5A9007A3AC2 /* Basket.storyboard */; };
+		E76FDF9F280406770083E1E6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76FDF9E280406770083E1E6 /* UIViewController+Extension.swift */; };
 		E7816FA227FD497900BA2B27 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7816FA127FD497900BA2B27 /* ProductCell.swift */; };
 		E787DA7E27FD8DFF00C052C5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E787DA7D27FD8DFF00C052C5 /* CoreDataManager.swift */; };
 		E787DA8127FD908800C052C5 /* Cart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E787DA7F27FD908800C052C5 /* Cart.xcdatamodeld */; };
@@ -114,6 +115,7 @@
 		E731691627FABA830040F41F /* BasketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCoordinator.swift; sourceTree = "<group>"; };
 		E731691827FAC3020040F41F /* ScreenFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFlow.swift; sourceTree = "<group>"; };
 		E73404B927FDA5A9007A3AC2 /* Basket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Basket.storyboard; sourceTree = "<group>"; };
+		E76FDF9E280406770083E1E6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		E7816FA127FD497900BA2B27 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		E787DA7D27FD8DFF00C052C5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E787DA8027FD908800C052C5 /* Cart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cart.xcdatamodel; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			children = (
 				E721352327FDDB8800837EAB /* UITableView+Extension.swift */,
 				E7D3F15F27FE81D60038CF1B /* UIView+Extension.swift */,
+				E76FDF9E280406770083E1E6 /* UIViewController+Extension.swift */,
 				E7D3F16127FE823C0038CF1B /* HapticFeedback.swift */,
 				E721352927FE093300837EAB /* AsyncImage.swift */,
 				E7B5F85E2801683B0059EFF5 /* Collection+Extension.swift */,
@@ -584,6 +587,7 @@
 				96063ADC27FD36D800E04C69 /* Storyboard+Extension.swift in Sources */,
 				E7E494E427FF102500944DA8 /* CoreDataItemHelper.swift in Sources */,
 				E7136B2827FF5CE3002605AC /* WishListViewModel.swift in Sources */,
+				E76FDF9F280406770083E1E6 /* UIViewController+Extension.swift in Sources */,
 				E721352627FDDF6200837EAB /* UIImageView+Extension.swift in Sources */,
 				E731691527FAB7870040F41F /* WishListCoordinator.swift in Sources */,
 				E731690127FAA51A0040F41F /* AppCoordinator.swift in Sources */,

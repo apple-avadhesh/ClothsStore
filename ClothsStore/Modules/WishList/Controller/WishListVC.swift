@@ -23,6 +23,8 @@ class WishListVC: UIViewController, WishListBase {
     var coordinator: WishListBaseCoordinator?
     var cdHelper = CoreDataItemHelper()
     var viewModel: WishListViewModel?
+    
+    @Published var shouldRefreshCartBadge : Bool = false
 
     // MARK: - Initializers
     init(coordinator: WishListBaseCoordinator) {
@@ -79,6 +81,17 @@ extension WishListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(with: WishListCell.self, for: indexPath)
         cell.item = viewModel!.items[indexPath.row]
+        
+        cell.addToCartCallback = { [unowned self] in
+            
+            if self.checkAvailability(forItem: viewModel!.items[indexPath.row]) {
+                shouldRefreshCartBadge = true
+                viewModel!.items[indexPath.row].updateWishlist()
+            }
+            
+            setUpBindings()
+        }
+        
         cell.selectionStyle = .none
         return cell
     }

@@ -24,6 +24,8 @@ class BasketCell: UITableViewCell, CellReusable {
     var quantity: Int = 1
     
     var item: Item!
+    
+    var stepperUpdatedCallback:((Int, UIButton) -> Void)?
 
     var cart:Cart? {
         didSet{
@@ -50,7 +52,6 @@ class BasketCell: UITableViewCell, CellReusable {
             quantity = quantity - 1
         }
         
-        self.quantityLabel.text = String(describing: quantity)
-        Cart.updateCart(withItem: item, forQuantity: quantity)
+        stepperUpdatedCallback?(quantity, sender)
     }
 }

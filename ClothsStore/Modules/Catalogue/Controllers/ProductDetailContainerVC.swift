@@ -29,7 +29,7 @@ class ProductDetailContainerVC: UIViewController {
         setupUI()
     }
     
-    func setupUI(){
+    func setupUI() {
         
         navigationController?.setNavigationBarHidden(false, animated: false)
 
@@ -55,7 +55,8 @@ class ProductDetailContainerVC: UIViewController {
     @IBAction func addToCartAction(_ sender: Any) {
         Haptic.feedBack()
         shouldRefreshCartBadge = true
-        Cart.updateCart(withItem: item)
+        
+        self.checkAvailability(forItem: item)
     }
 
     @IBAction func addToWishListAction(_ sender: Any) {

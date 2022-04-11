@@ -39,6 +39,13 @@ class WishListCoordinator: WishListBaseCoordinator {
                 })
                 .store(in: &bindings)
             
+            wishlistVC.$shouldRefreshCartBadge
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { [weak self] _ in
+                    self?.badgeUpdate()
+                })
+                .store(in: &bindings)
+            
             rootViewController = UINavigationController(rootViewController: wishlistVC)
             (rootViewController as? UINavigationController)?.navigationBar.prefersLargeTitles = true
             return rootViewController
@@ -47,8 +54,11 @@ class WishListCoordinator: WishListBaseCoordinator {
     }
     
     func badgeUpdate() {
-        if let tabItems = (rootViewController as? UINavigationController)?.tabBarController?.tabBar.items, let tabItem = tabItems[safe: 1]  {
-            tabItem.badgeValue = "\(Item.getAllWishListItems())"
+        if let tabItems = (rootViewController as? UINavigationController)?.tabBarController?.tabBar.items,
+           let wishListTabItem = tabItems[safe: 1],
+           let basketTabItem = tabItems[safe: 2]{
+            wishListTabItem.badgeValue = "\(Item.getAllWishListItems())"
+            basketTabItem.badgeValue = "\(Cart.getAllCartItems())"
         }
     }
     

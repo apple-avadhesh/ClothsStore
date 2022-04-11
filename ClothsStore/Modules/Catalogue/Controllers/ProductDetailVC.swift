@@ -33,8 +33,13 @@ class ProductDetailVC: UITableViewController {
          attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSNumber(value: NSUnderlineStyle.single.rawValue), range: NSMakeRange(0, attributedString.length))
          attributedString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.primaryColour, range: NSMakeRange(0, attributedString.length))
         
-        if item?.oldPrice != nil{
-             productOldPrice.attributedText = attributedString
+        
+        if let oldPrice = item?.oldPrice {
+            if oldPrice == 0 {
+                productOldPrice.isHidden = true
+            } else {
+                productOldPrice.attributedText = attributedString
+            }
         }
         
         productCategory.text = item?.category

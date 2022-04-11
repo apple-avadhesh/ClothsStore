@@ -86,6 +86,18 @@ extension BasketVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(with: BasketCell.self, for: indexPath)
         cell.cart = viewModel!.cart[indexPath.row]
+        
+        //Quantity Stepper
+        
+        cell.stepperUpdatedCallback = { [unowned self] qnty, btn in
+            
+            if let item = viewModel!.cart[indexPath.row].item {
+                if !checkAvailabilityForCart(forItem: item, quantity: qnty) {
+                    cell.quantity = cell.quantity - 1
+                }
+            }
+        }
+       
         cell.selectionStyle = .none
         return cell
     }

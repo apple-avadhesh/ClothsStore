@@ -19,7 +19,7 @@ extension Cart {
             if let cart = result.first {
                 cart.quantity += 1
                 cart.subTotal = (item.price * Double(cart.quantity))
-            }else{
+            } else {
                 let cart = Cart.init(context: context)
                 cart.quantity = 1
                 cart.productId = item.productID
@@ -31,7 +31,7 @@ extension Cart {
             print("Could not fetch cart")
         }
     }
-    
+   
     class func updateCart(withItem item:Item, forQuantity quantity:Int){
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Cart> = Cart.fetchRequest()

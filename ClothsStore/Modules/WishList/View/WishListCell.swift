@@ -10,10 +10,16 @@ import UIKit
 
 
 class WishListCell: UITableViewCell, CellReusable {
+    
+    //MARK: Outlets
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var stockLabel: UILabel!
     @IBOutlet private weak var productImageView: UIImageView!
+    
+    //Properties
+    
+    var addToCartCallback:(() -> Void)?
 
     var item: Item? {
         didSet{
@@ -25,8 +31,9 @@ class WishListCell: UITableViewCell, CellReusable {
         }
     }
     
+    //MARK: Actions
     @IBAction func addToCart(_ sender: Any) {
-        guard let item = item else {return}
-        Cart.updateCart(withItem: item)
+        guard let _ = item else {return}
+        addToCartCallback?()
     }
 }
