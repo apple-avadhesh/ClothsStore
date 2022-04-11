@@ -16,7 +16,7 @@ struct ProductCell: View {
     //MARK: Body
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 0) {
 
             //Note: Apple's AsyncImage Not stable and flickers when scrolling
             
@@ -25,12 +25,8 @@ struct ProductCell: View {
                 placeholder: { Text("Loading ...") },
                 image: { Image(uiImage: $0).resizable() }
             )
-            .frame(minWidth:UIScreen.main.bounds.width / 2 - 35, idealHeight: UIScreen.main.bounds.width / 2 )
-            .background(Color.blue)
-            .cornerRadius(12)
-            .padding(8)
-            
-            Spacer()
+            .frame(width: UIScreen.main.bounds.width / 2 - 25,
+                   height: UIScreen.main.bounds.width / 2, alignment: .center)
             
             // Product Name
             Text(item.name ?? "")
@@ -44,7 +40,5 @@ struct ProductCell: View {
                 .fontWeight(.black)
                 .padding(8)
         }
-        .background(Color.teal)
-        .cornerRadius(12)
     }
 }

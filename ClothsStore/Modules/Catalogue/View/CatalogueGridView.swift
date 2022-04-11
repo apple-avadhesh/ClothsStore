@@ -14,9 +14,10 @@ struct CatalogueGridView: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false, content: {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())],spacing: 20) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())],spacing: 10) {
                 ForEach(viewModel.items, id: \.self) { item in
                     ProductCell(item: item)
+                        .background(Color(.white)).cornerRadius(10).clipShape(Rectangle()).shadow(radius: 4)
                         .onTapGesture {
                             selectedProduct?(item)
                         }
