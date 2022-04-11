@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		96063AD627FD34E000E04C69 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96063AD527FD34E000E04C69 /* Catalogue.storyboard */; };
 		96063ADC27FD36D800E04C69 /* Storyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96063ADB27FD36D800E04C69 /* Storyboard+Extension.swift */; };
+		96CED7E528044B2C009319FC /* CatalogueDecoderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CED7E428044B2C009319FC /* CatalogueDecoderTest.swift */; };
+		96CED7E728044C2B009319FC /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CED7E628044C2B009319FC /* TestHelper.swift */; };
 		96EE005027FE1E8800CF9497 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EE004F27FE1E8800CF9497 /* ProductDetail.storyboard */; };
 		96EE005227FE201000CF9497 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE005127FE201000CF9497 /* UIColor+Extension.swift */; };
 		E707C52027FC045D00D0D1AD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E707C51F27FC045D00D0D1AD /* APIClient.swift */; };
@@ -80,6 +82,8 @@
 /* Begin PBXFileReference section */
 		96063AD527FD34E000E04C69 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		96063ADB27FD36D800E04C69 /* Storyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Extension.swift"; sourceTree = "<group>"; };
+		96CED7E428044B2C009319FC /* CatalogueDecoderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueDecoderTest.swift; sourceTree = "<group>"; };
+		96CED7E628044C2B009319FC /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		96EE004F27FE1E8800CF9497 /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		96EE005127FE201000CF9497 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E707C51F27FC045D00D0D1AD /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				E73168DF27FAA09D0040F41F /* ClothsStoreTests.swift */,
+				96CED7E428044B2C009319FC /* CatalogueDecoderTest.swift */,
+				96CED7E628044C2B009319FC /* TestHelper.swift */,
 				E7BFAA612802EFF200578174 /* Catalogue.json */,
 			);
 			path = ClothsStoreTests;
@@ -620,6 +626,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CED7E728044C2B009319FC /* TestHelper.swift in Sources */,
+				96CED7E528044B2C009319FC /* CatalogueDecoderTest.swift in Sources */,
 				E73168E027FAA09D0040F41F /* ClothsStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
