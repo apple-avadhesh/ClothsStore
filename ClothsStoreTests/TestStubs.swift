@@ -18,33 +18,4 @@ extension NetworkStubbing {
       userInfo: [NSLocalizedDescriptionKey: "File \(filename) not found in test bundle"]
     )
   }
-
-//  func parseDataFrom<T: Decodable>(
-//    decodableType: T.Type,
-//    filename: FileName,
-//    fileType: FileType
-//  ) throws -> T {
-//    do {
-//      let data = try loadDataFrom(filename: filename, fileType: fileType)
-//      return try JSONDecoder().decode(decodableType, from: data)
-//    } catch let err {
-//      throw (err)
-//    }
-//  }
-//
-//  func makeSingleAlbum() throws -> Album? {
-//    return try parseDataFrom(
-//      decodableType: AlbumResponse.self,
-//      filename: .oneAlbumStub,
-//      fileType: .json
-//    ).feed.results.first
-//  }
-//
-//  func make100Albums() throws -> [Album] {
-//    return try parseDataFrom(
-//      decodableType: AlbumResponse.self,
-//      filename: .fullStub,
-//      fileType: .json
-//    ).feed.results
-//  }
 }
